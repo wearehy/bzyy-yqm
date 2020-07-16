@@ -15,58 +15,62 @@
 
     <img class="bg-fill fit-cover fixed tblr-0" src="./img/bgImg.jpg" alt="">
     <div id='app' class="fixed tblr-0">
-        <form class="middle ">
-            <div class="item">
-                <div class="relative width-fill overflow">
-                    <input v-model="mobile" id="mobile" class="item-input" placeholder="请输入手机号">
-                    <div class="ico">
-                        <img src="./img/phone.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="relative width-fill overflow">
-                    <input v-model="password" id="password" class="item-input" type="password" placeholder="请输入密码" />
-                    <div class="get-button">
-                        <div id="show" class="pointer padR0" @click="eyeFun()">
-                            <img class="eye " v-if="!eyeBool" src="./img/eye.png">
-                            <img class="eyeC" v-if="eyeBool" src="./img/eyeC.png">
+        <div class="middle">
+            <form class="mForm">
+                <div class="item">
+                    <div class="relative width-fill overflow">
+                        <input v-model="mobile" id="mobile" class="item-input" placeholder="请输入手机号">
+                        <div class="ico">
+                            <img src="./img/phone.png" alt="">
                         </div>
                     </div>
-                    <div class="ico">
-                        <img src="./img/password.png" alt="">
+                </div>
+                <div class="item">
+                    <div class="relative width-fill overflow">
+                        <input v-model="password" id="password" class="item-input" type="password"
+                            placeholder="请输入密码" />
+                        <div class="get-button">
+                            <div id="show" class="pointer padR0" @click="eyeFun()">
+                                <img class="eye " v-if="!eyeBool" src="./img/eye.png">
+                                <img class="eyeC" v-if="eyeBool" src="./img/eyeC.png">
+                            </div>
+                        </div>
+                        <div class="ico">
+                            <img src="./img/password.png" alt="">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="item">
-                <div class="relative width-fill overflow">
-                    <input v-model="verify" id="verify" class="item-input" type="text" placeholder="请输入验证码" />
-                    <div class="get-button">
-                        <div id="send" class="colorRed pointer" @click="send()">{{countDown}}</div>
-                    </div>
-                    <div class="ico">
-                        <img src="./img/yzm.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="relative width-fill overflow">
-                    <input v-model="code" id="code" class="item-input" type="text" placeholder="请输入邀请码" />
-                    <div class="ico">
-                        <img src="./img/yqm.png" alt="">
+                <div class="item">
+                    <div class="relative width-fill overflow">
+                        <input v-model="verify" id="verify" class="item-input" type="text" placeholder="请输入验证码" />
+                        <div class="get-button">
+                            <div id="send" class="colorRed pointer" @click="send()">{{countDown}}</div>
+                        </div>
+                        <div class="ico">
+                            <img src="./img/yzm.png" alt="">
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="item">
+                    <div class="relative width-fill overflow">
+                        <input v-model="code" id="code" class="item-input" type="text" placeholder="请输入邀请码" />
+                        <div class="ico">
+                            <img src="./img/yqm.png" alt="">
+                        </div>
+                    </div>
+                </div>
 
-            <div id="get" :class="['item-bottom','flex','flex-center','pointer',getColor?'colorRed':'colorPink']"
-                @click="getFun()">
-                立即领取 
-            </div>
+                <div id="get" :class="['item-bottom','flex','flex-center','pointer',getColor?'colorRed':'colorPink']"
+                    @click="getFun()">
+                    立即领取
+                </div>
 
-            <div :class="['modal', this.ajaxCode == 200 ? 'alert-success':'alert-danger']" v-if="modalBool">
-                {{message}}
-            </div>
-        </form>
+                <div :class="['modal', this.ajaxCode == 200 ? 'alert-success':'alert-danger']" v-if="modalBool">
+                    {{message}}
+                </div>
+            </form>
+            <p class="bTxt">—— 一键解决孕吐烦恼，乐享孕期健康生活 ——</p>
+        </div>
     </div>
 
 
