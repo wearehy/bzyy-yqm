@@ -1,0 +1,154 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+ul,li {
+    list-style: none;
+}
+input:focus{
+    outline: none;
+}
+.relative {
+    position: relative;
+}
+.middle {
+    position: absolute;
+    width: 85%;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f5f9fc;
+    border-radius: 3vw;
+    overflow: hidden;
+}
+.pointer{
+    cursor: pointer;
+}
+.overflow {
+    overflow: hidden;
+}
+.flex{
+    display: flex;
+}
+.flex-center{
+    align-items: center;
+    justify-content: center;
+}
+.fixed {
+    position: fixed;
+}
+.tblr-0{
+    top: 0;bottom: 0;left: 0;right: 0;
+}
+.fit-cover {
+    object-fit: cover;
+}
+.bg-fill {
+    width: 100%;
+    height: 100%;
+}
+.width-fill {
+    width: 100%;
+}
+.item{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.item-bottom{
+    width: 100%;
+    height: 40px;
+    color: white;
+}
+.item:not(:nth-child(4)):after{
+    position: absolute;
+    left: 20px;right: 20px;
+    content: ' ';
+    bottom: 0;
+    border-bottom: 1px solid #E0E1E3;
+    box-sizing: border-box;
+    
+}
+
+.item .item-input{
+    width: 100%;
+    height: 35px;
+    padding-left: 40px;
+    background-color: #f5f9fc;
+    border: 0;
+}
+
+.ico{
+    position: absolute;
+    left: 0;top: 0;bottom: 0;
+    width: 40px;
+}
+.ico img{
+    position: absolute;
+    top: 50%;left: 50%;
+    transform: translate(-50%,-50%);
+    height: 16px;
+}
+.get-button{
+    position: absolute;
+    width: 100px;
+    right: 0;top: 0;bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 15px;
+}
+.get-button>div{
+    padding: 2px 20px;
+    border-radius: 18px;
+    color: white;
+}
+.padR0{
+    padding-right: 0!important;
+}
+.colorRed{
+    background-color: #ff7791;
+}
+.colorPink{
+    background-color: #f9c5d1;
+}
+.eye,.eyeC{
+    width: 20px;
+}
+
+.disN{
+    display: none;
+}
+.disB{
+    display: block;
+}
+
+.modal{
+    position: fixed;
+    padding: 5px 20px;
+    top: 50%;left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    overflow: hidden;
+    white-space:nowrap;
+
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}

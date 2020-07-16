@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>豹造孕育邀请好友</title>
+</head>
+
+<body>
+
+    <img class="bg-fill fit-cover fixed tblr-0" src="./img/bgImg.jpg" alt="">
+    <div id='app' class="fixed tblr-0">
+        <form class="middle ">
+            <div class="item">
+                <div class="relative width-fill overflow">
+                    <input v-model="mobile" id="mobile" class="item-input" placeholder="请输入手机号">
+                    <div class="ico">
+                        <img src="./img/phone.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="relative width-fill overflow">
+                    <input v-model="password" id="password" class="item-input" type="password" placeholder="请输入密码" />
+                    <div class="get-button">
+                        <div id="show" class="pointer padR0" @click="eyeFun()">
+                            <img class="eye " v-if="!eyeBool" src="./img/eye.png">
+                            <img class="eyeC" v-if="eyeBool" src="./img/eyeC.png">
+                        </div>
+                    </div>
+                    <div class="ico">
+                        <img src="./img/password.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="relative width-fill overflow">
+                    <input v-model="verify" id="verify" class="item-input" type="text" placeholder="请输入验证码" />
+                    <div class="get-button">
+                        <div id="send" class="colorRed pointer" @click="send()">{{countDown}}</div>
+                    </div>
+                    <div class="ico">
+                        <img src="./img/yzm.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="relative width-fill overflow">
+                    <input v-model="code" id="code" class="item-input" type="text" placeholder="请输入邀请码" />
+                    <div class="ico">
+                        <img src="./img/yqm.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div id="get" :class="['item-bottom','flex','flex-center','pointer',getColor?'colorRed':'colorPink']"
+                @click="getFun()">
+                立即领取 
+            </div>
+
+            <div :class="['modal', this.ajaxCode == 200 ? 'alert-success':'alert-danger']" v-if="modalBool">
+                {{message}}
+            </div>
+        </form>
+    </div>
+
+
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="./js/crypto-js.js"></script>
+    <!-- new Vue  -->
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
+ 
