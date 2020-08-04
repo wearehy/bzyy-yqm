@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link rel="shortcut icon" href="./img/favicon.ico" />
     <link rel="stylesheet" href="./css/index.css" />
-    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script> -->
+    <script src="./js/vue.min.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <title>豹造孕育邀请好友</title>
 </head>
 
@@ -27,7 +28,7 @@
                 </div>
                 <div class="item">
                     <div class="relative width-fill overflow">
-                        <input v-model="password" id="password" class="item-input" type="password"
+                        <input v-model="password" id="password" class="item-input" type="text"
                             placeholder="请输入密码" />
                         <div class="get-button">
                             <div id="show" class="pointer padR0" @click="eyeFun()">
@@ -53,7 +54,7 @@
                 </div>
                 <div class="item">
                     <div class="relative width-fill overflow">
-                        <input v-model="code" id="code" class="item-input" type="text" placeholder="请输入邀请码" />
+                        <input v-model="code" id="code" class="item-input" type="text" placeholder="请输入邀请码" :disabled="pDis" :style="pDis&&{color:'rgb(191,191,191'}"/>
                         <div class="ico">
                             <img src="./img/yqm.png" alt="">
                         </div>
@@ -74,7 +75,8 @@
     </div>
 
 
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> -->
+    <script src="./js/jquery.min.js"></script>
     <script src="./js/crypto-js.js"></script>
     <!-- new Vue  -->
     <script src="./js/index.js"></script>

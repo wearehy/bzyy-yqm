@@ -6,10 +6,10 @@ new Vue({
         password: null,
         verify: null,
         code: null,
-
+        pDis: false, //是否可以填写邀请码
         getColor: false,
         countDown: '获取',
-        eyeBool: true,
+        eyeBool: false,
 
         ajaxCode: null,
         message: null,
@@ -40,42 +40,57 @@ new Vue({
     methods: {
         send() {
             let _this = this;
-            if (this.countDown != '获取') return false;
-            this.timer();
-
-            let timestamp = (new Date()).valueOf().toString();
-
-            let data = {
-                type: 2,
-                mobile: this.mobile
-            }
-            let type = 'POST'
-            let query = ''
-            let sign = this.calcSign(type == 'POST' ? data : query, timestamp);
-
-
-
-            $.ajax({
-                type: type,
-                headers: {
-                    'version': '1.0.0',
-                    'timestamp': timestamp,
-                    'sign': sign
-                },
-                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-                url: this.url + 'sendSms',
-                data: data,
-                success: function (res) {
-
-                    _this.ajaxCode = res.code;
-                    _this.message = res.message;
+            if (this.countDown != '获取') {
+                return false;
+            } else if (this.mobile == '' || this.mobile == null) {
+                _this.message = '请输入手机号';
                     _this.modalBool = true;
-                    setTimeout(() => {
-                        _this.modalBool = false
-                    }, 3000);
+                setTimeout(() => {
+                    _this.modalBool = false
+                }, 3000);
+            } else if (this.mobile && this.mobile.toString().length < 11) {
+                _this.message = '请输入正确手机号';
+                _this.modalBool = true;
+                setTimeout(() => {
+                    _this.modalBool = false
+                }, 3000);
+            } else {
+                this.timer();
 
+                let timestamp = (new Date()).valueOf().toString();
+
+                let data = {
+                    type: 2,
+                    mobile: this.mobile
                 }
-            })
+                let type = 'POST'
+                let query = ''
+                let sign = this.calcSign(type == 'POST' ? data : query, timestamp);
+
+                $.ajax({
+                    type: type,
+                    headers: {
+                        'version': '1.0.0',
+                        'timestamp': timestamp,
+                        'sign': sign
+                    },
+                    contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                    url: this.url + 'sendSms',
+                    data: data,
+                    success: function (res) {
+
+                        _this.ajaxCode = res.code;
+                        _this.message = res.message;
+                        _this.modalBool = true;
+                        setTimeout(() => {
+                            _this.modalBool = false
+                        }, 3000);
+
+                    }
+                })
+            }
+
+
         },
         //领取
         getFun() {
@@ -173,5 +188,6 @@ new Vue({
     },
     mounted() {
         this.code = this.request('code');
+        (this.code == null || this.code == '') ? this.pDis = false: this.pDis = true;
     }
 })
